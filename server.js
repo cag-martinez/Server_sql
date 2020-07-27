@@ -2,10 +2,15 @@ var mysql = require("mysql");
 var inquirer = require("inquirer");
 
 // create the connection information for the sql database
-var connection = mysql.createConnection({
+
+var connection;
+if (process.env.JAWSDB_URL) {
+    connection = mysql.createConnection(process.env.JAWSDB_URL);
+} else {
+connection = mysql.createConnection({
   host: "localhost",
 
-  // Your port; if not 3306
+  // Your port
   port: 3306,
 
   // Your username
