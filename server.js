@@ -20,10 +20,11 @@ connection = mysql.createConnection({
   password: "rootroot",
   database: "great_api_db"
 });
+};
 
 // connect to the mysql server and sql database
 connection.connect(function(err) {
   if (err) throw err;
   // run the start function after the connection is made to prompt the user
   start();
-});
+})
